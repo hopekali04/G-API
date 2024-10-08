@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostels</title>
+    
+</head>
+
+<main>
+    <%- include("../partials/navbar")%>
+    <div class="container">
+      <br>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <h2><center>Hostels</center></h2>
+      <button class="btn btn-primary me-md-2" >
+            <a href="/hostels/create" class="btn btn-primary me-md-2">Create Hostel</a>
+        </button>
+        <button class="btn btn-primary" type="button">Button</button>
+      </div>
+
+      <div class="table-responsive col-lg-12">
+        <table class="table table-striped">
+           <thead class="table-dark">
+             <tr>
+               <th scope="col">#</th>
+               <th scope="col">Name</th>
+               <th scope="col">Address</th>
+               <th scope="col">Capacity</th>
+             </tr>
+           </thead>
+           <tbody>
+             <% for (let i = 0; i < data.length; i++) { %>
+               <tr>
+                 <th scope="row"><%= i + 1 %></th>
+                 <td><%= data[i].name %></td>
+                 <td><%= data[i].address %></td>
+                 <td><%= data[i].capacity %></td>
+               </tr>
+             <% } %>
+           </tbody>
+        </table>
+       </div>
+      
+      
+    </div>
+  </main>
+
+</html>

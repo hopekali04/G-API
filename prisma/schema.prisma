@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  name    String?
+}
+
+model Room {
+  id          Int      @id @default(autoincrement())
+  roomNumber  String
+  roomType    String
+  studentID   Int? @unique
+  createdAt   DateTime @default(now())
+}
+
+model Hostel {
+  id        Int      @id @default(autoincrement())
+  name      String
+  address   String
+  capacity  Int
+  createdAt DateTime @default(now())
+}
+
+model Student {
+  id          Int      @id @default(autoincrement())
+  name        String
+  gender      String
+  dateOfBirth String
+  phone       String
+  address     String
+  roomID      Int? @unique
+  createdAt   DateTime @default(now())
+}
+
+model Payment {
+  id          Int      @id @default(autoincrement())
+  mode        String
+  referenceNumber      String
+  studentId      Int
+  payeDay DateTime
+  receiptNumeber String
+  createdAt   DateTime @default(now())
+}
+model Expenditure {
+  id          Int      @id @default(autoincrement())
+  createdBy        Int
+  reason      String
+  amount Float
+  category  String
+  date      DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+}
+model Accomodation {
+  id          Int      @id @default(autoincrement())
+  studentid      Int
+  roomid Int
+  year  String
+  term      String 
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+}
+model SchoolTerm {
+  id          Int      @id @default(autoincrement())
+  year        String
+  term        DateTime @default(now())
+  createdAt   DateTime @default(now())
+}
+

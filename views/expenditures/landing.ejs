@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses</title>
+    
+</head>
+<main>
+    <%- include("../partials/navbar")%>
+    <div class="container">
+      <br>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <h2><center>Expenditures</center></h2>
+      <button class="btn btn-primary me-md-2" >
+            <a href="create/expenditures" class="btn btn-primary me-md-2">Add Expense</a>
+            <a href="create/category" class="btn btn-primary me-md-2">Add Category</a>
+            <!-- Use a Pop Up Form -->
+        </button>
+      </div>
+
+      <div class="table-responsive col-lg-12">
+        <table class="table table-striped">
+           <thead class="table-dark">
+             <tr>
+               <th scope="col">#</th>
+               <th scope="col">Reason</th>
+               <th scope="col">Category</th>
+               <th scope="col">Amount</th>
+             </tr>
+           </thead>
+           <tbody>
+             <% for (let i = 0; i < data.length; i++) { %>
+               <tr>
+                 <th scope="row"><%= i + 1 %></th>
+                 <td><%= data[i].reason %></td>
+                 <td><%= data[i].category %></td>
+                 <td><%= data[i].amount %></td>
+               </tr>
+             <% } %>
+           </tbody>
+        </table>
+       </div>
+      
+      
+    </div>
+  </main>
+
+</html>

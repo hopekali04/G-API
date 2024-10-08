@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments</title>
+    
+</head>
+
+<main>
+    <%- include("../partials/navbar")%>
+    <div class="container">
+      <br>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <h2><center>Payments</center></h2>
+      <button class="btn btn-primary me-md-2" >
+            <a href="create/payments" class="btn btn-primary me-md-2">Add Payment</a>
+        </button>
+      </div>
+
+      <div class="table-responsive col-lg-12">
+        <table class="table table-striped">
+           <thead class="table-dark">
+             <tr>
+               <th scope="col">#</th>
+               <th scope="col">Mode</th>
+               <th scope="col">Student ID</th>
+               <th scope="col">Day</th>
+             </tr>
+           </thead>
+           <tbody>
+             <% for (let i = 0; i < data.length; i++) { %>
+               <tr>
+                 <th scope="row"><%= i + 1 %></th>
+                 <td><%= data[i].mode %></td>
+                 <td><%= data[i].studentId %></td>
+                 <td><%= data[i].payeDay %></td>
+               </tr>
+             <% } %>
+           </tbody>
+        </table>
+       </div>
+      
+      
+    </div>
+  </main>
+
+</html>
